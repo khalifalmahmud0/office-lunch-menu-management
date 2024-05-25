@@ -145,10 +145,11 @@ dist
 # local env files
 .env*.local
 
-# vercel
-.vercel
 
 # typescript
 package-lock.json
 yarn.lock
 .idea
+
+# vercel
+.vercel
