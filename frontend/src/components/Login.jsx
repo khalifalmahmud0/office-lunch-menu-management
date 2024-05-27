@@ -1,6 +1,8 @@
+import Layout from "../Layout";
+
 const Login = () => {
   return (
-    <>
+    <Layout login="true">
       {/* Login */}
       <div className="flex min-h-screen items-center justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -59,7 +61,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
