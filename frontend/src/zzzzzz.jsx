@@ -1,5 +1,5 @@
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
+import Navbar from "./components/app/Navbar";
+import Sidebar from "./components/app/Sidebar";
 
 const App = () => {
   return (
