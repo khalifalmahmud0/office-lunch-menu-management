@@ -35,14 +35,36 @@ const Dashboard = () => {
     <div className="flex flex-col h-screen overflow-hidden bg-gray-100">
       {/* Top Bar */}
       <header className="bg-white shadow">
-        <div className="flex items-center justify-between px-8 pt-2 pb-5">
+        <div className="flex items-center justify-between px-8">
           <div className="flex items-center">
             <button className="text-gray-500 lg:hidden" onClick={toggleSidebar}>
-              {/* <MenuIcon className="w-6 h-6" />  */}
-              I1
+              <svg
+                width="40px"
+                height="40px"
+                viewBox="0 0 24.00 24.00"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke=""
+                transform="matrix(-1, 0, 0, -1, 0, 0)"
+                strokeWidth="0.00024000000000000003"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <path d="M5 6.5H19V8H5V6.5Z" fill="#8c8787"></path>{" "}
+                  <path d="M5 16.5H19V18H5V16.5Z" fill="#8c8787"></path>{" "}
+                  <path d="M5 11.5H19V13H5V11.5Z" fill="#8c8787"></path>{" "}
+                </g>
+              </svg>
             </button>
-            <h1 className="text-lg font-bold text-indigo-800 ml-2 lg:ml-0">
-              <img src={Logo} className="logo" alt="Site Logo" />
+            <h1 className="text-2xl font-bold">
+              {/* <img src={Logo} className="logo" alt="Site Logo" /> */}
+              LUNCHmate
             </h1>
           </div>
           <div className="relative">
@@ -79,8 +101,7 @@ const Dashboard = () => {
           <div className="flex items-center justify-between p-4 lg:hidden">
             <h1 className="text-lg font-bold">AMI</h1>
             <button className="text-white" onClick={toggleSidebar}>
-              {/* <XIcon className="w-6 h-6" />  */}
-              I2
+              X
             </button>
           </div>
           <div className="p-4 space-y-4">
