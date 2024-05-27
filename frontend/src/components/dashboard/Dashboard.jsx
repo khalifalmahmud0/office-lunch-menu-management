@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Logo from "../../assets/img/logo.svg";
-// import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import People from "../../assets/img/people.jpg";
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -50,21 +50,7 @@ const Dashboard = () => {
               className="flex items-center space-x-2 text-gray-700"
               onClick={toggleMenu}
             >
-              <span className="font-medium">LOVE</span>
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <img src={People} alt="Account Photo" />
             </button>
             {menuOpen && (
               <div
