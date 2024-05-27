@@ -35,9 +35,12 @@ const Dashboard = () => {
     <div className="flex flex-col h-screen overflow-hidden bg-gray-100">
       {/* Top Bar */}
       <header className="bg-white shadow">
-        <div className="flex items-center justify-between px-8">
+        <div className="flex items-center justify-between px-4">
           <div className="flex items-center">
-            <button className="text-gray-500 lg:hidden" onClick={toggleSidebar}>
+            <button
+              className="text-gray-500 pr-4 lg:hidden"
+              onClick={toggleSidebar}
+            >
               <svg
                 width="40px"
                 height="40px"
@@ -64,7 +67,7 @@ const Dashboard = () => {
             </button>
             <h1 className="text-2xl font-bold">
               {/* <img src={Logo} className="logo" alt="Site Logo" /> */}
-              LUNCHmate
+              LunchMate
             </h1>
           </div>
           <div className="relative">
@@ -94,12 +97,12 @@ const Dashboard = () => {
       <div className="flex flex-1">
         {/* Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 z-30 w-64 transition-transform transform bg-indigo-800 text-white lg:translate-x-0 lg:static lg:inset-0 ${
+          className={`fixed inset-y-0 left-0 z-30 w-64 transition-transform transform bg-slate-950 text-white lg:translate-x-0 lg:static lg:inset-0 ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           <div className="flex items-center justify-between p-4 lg:hidden">
-            <h1 className="text-lg font-bold">AMI</h1>
+            <h1 className="text-lg font-bold"></h1>
             <button className="text-white" onClick={toggleSidebar}>
               X
             </button>
@@ -107,17 +110,28 @@ const Dashboard = () => {
           <div className="p-4 space-y-4">
             <a
               href="#"
-              className="block p-2 text-base font-medium rounded hover:bg-indigo-700"
+              className="block p-2 text-base font-medium rounded bg-gray-900  hover:bg-gray-800"
             >
               Add Food Menu
             </a>
             <a
               href="#"
-              className="block p-2 text-base font-medium rounded hover:bg-indigo-700"
+              className="block p-2 text-base font-medium rounded bg-gray-900  hover:bg-gray-800"
             >
-              Users
+              Add Food Menu
             </a>
-            {/* Add more menu items here */}
+            <a
+              href="#"
+              className="block p-2 text-base font-medium rounded bg-gray-900  hover:bg-gray-800"
+            >
+              Add Food Menu
+            </a>
+            <a
+              href="#"
+              className="block p-2 text-base font-medium rounded bg-gray-900  hover:bg-gray-800"
+            >
+              Add Food Menu
+            </a>
           </div>
         </div>
 
