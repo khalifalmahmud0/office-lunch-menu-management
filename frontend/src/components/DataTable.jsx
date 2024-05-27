@@ -1,35 +1,30 @@
+// DataTable.js
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 
-const DataTableView = () => {
+const CustomDataTable = ({ fields, data, hasActions }) => {
   const [filterText, setFilterText] = useState("");
   const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
-  const columns = [
-    {
-      name: "Title",
-      selector: (row) => row.title,
-      sortable: true,
-    },
-    {
-      name: "Year",
-      selector: (row) => row.year,
-      sortable: true,
-    },
-  ];
+  const columns = fields.map((field) => ({
+    name: field.label,
+    selector: (row) => row[field.key],
+    sortable: field.sortable || false,
+  }));
 
-  const data = [
-    {
-      id: 1,
-      title: "Beetlejuice",
-      year: "1988",
-    },
-    {
-      id: 2,
-      title: "Ghostbusters",
-      year: "1984",
-    },
-  ];
+  if (hasActions) {
+    // Add custom column for "Actions" if hasActions is true
+    columns.push({
+      name: "Actions",
+      cell: (row) => (
+        <div>
+          <a href={`edit/${row.id}`}>Edit</a>
+          {" | "}
+          <a href={`delete/${row.id}`}>Delete</a>
+        </div>
+      ),
+    });
+  }
 
   const filteredItems = data.filter((item) =>
     Object.values(item).some(
@@ -67,16 +62,18 @@ const DataTableView = () => {
   }, [filterText, resetPaginationToggle]);
 
   return (
-    <>
-      <DataTable
-        columns={columns}
-        data={filteredItems}
-        pagination
-        subHeader
-        subHeaderComponent={subHeaderComponentMemo}
-      />
-    </>
+    <DataTable
+      columns={columns}
+      data={filteredItems}
+      pagination
+      subHeader
+      subHeaderComponent={subHeaderComponentMemo}
+      fixedHeader={true}
+      fixedHeaderScrollHeight="500px"
+      highlightOnHover
+      pointerOnHover
+    />
   );
 };
 
-export default DataTableView;
+export default CustomDataTable;

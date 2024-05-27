@@ -1,122 +1,22 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/16/solid";
 import Form from "./Form";
+import CustomDataTable from "./DataTable";
 
 const TodayMenu = () => {
+  const fields = [
+    { key: "id", label: "ID" },
+    { key: "name", label: "Name", sortable: true },
+    { key: "email", label: "Email" },
+  ];
+
+  const data = [
+    { id: 1, name: "John Doe", email: "john@example.com" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com" },
+    { id: 1, name: "John Doe", email: "john@example.com" },
+  ];
   return (
     <>
-      {/* ::::::::: Admin :::::::::::::::  */}
-      {/* <h1>Admin</h1>
-      <hr />
-      <form action="">
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div className="sm:col-span-3">
-            <label
-              htmlFor="choose-date"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Date
-            </label>
-            <div className="mt-2">
-              <input
-                type="date"
-                name="choose-date"
-                id="choose-date"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-3">
-            <label
-              htmlFor="add-menu"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Add Menu
-            </label>
-            <div className="mt-2">
-              <input
-                type="text"
-                name="add-menu"
-                id="add-menu"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="rounded-md bg-indigo-600 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Save
-          </button>
-        </div>
-      </form> */}
-      {/* ::::::::: Employee :::::::::::::::  */}
-      {/* <h1>Employee</h1>
-      <hr />
-      <form action="">
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div className="sm:col-span-3">
-            <label
-              htmlFor="choose-date"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Date
-            </label>
-            <div className="mt-2">
-              <input
-                type="date"
-                name="choose-date"
-                id="choose-date"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-3">
-            <label
-              htmlFor="country"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Country
-            </label>
-            <div className="mt-2">
-              <select
-                id="country"
-                name="country"
-                autoComplete="country-name"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-              >
-                <option>United States</option>
-                <option>Canada</option>
-                <option>Mexico</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="rounded-md bg-indigo-600 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Save
-          </button>
-        </div>
-      </form>
-      <h1>You Selcet RICE Today</h1> */}
-      {/* ::::::::::::::::::::::::  */}
-      <div className="isolate ">
+      <div className="isolate mx-auto max-w-3xl">
         <div
           className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
           aria-hidden="true"
@@ -130,16 +30,12 @@ const TodayMenu = () => {
           ></div>
         </div>
         <div className="admin-side">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Add Menu (admin)
             </h2>
           </div>
-          <form
-            action="#"
-            method="POST"
-            className="mx-auto mt-8 max-w-xl sm:mt-8"
-          >
+          <form action="#" method="POST" className=" mt-8  sm:mt-8">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label
@@ -185,8 +81,7 @@ const TodayMenu = () => {
             </div>
           </form>
           {/* Table  */}
-
-          <div className="mx-auto mt-8 max-w-xl sm:mt-8 relative overflow-x-auto shadow-md sm:rounded-lg">
+          {/* <div className=" mt-8  sm:mt-8 relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -270,16 +165,19 @@ const TodayMenu = () => {
                 </tr>
               </tbody>
             </table>
+          </div> */}
+          <div className=" mt-8  sm:mt-8 relative overflow-x-auto shadow-md sm:rounded-lg">
+            <CustomDataTable fields={fields} data={data} hasActions={true} />
           </div>
         </div>
         <div className="employee-side">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Select Menu (employee)
             </h2>
           </div>
 
-          <div className="mx-auto mt-8 max-w-xl sm:mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className=" mt-8  sm:mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <p>
               I’m Derek, an astro-engineer based in Tattooine. I like to build
               X-Wings at
@@ -291,11 +189,7 @@ const TodayMenu = () => {
               fights.
             </p>
           </div>
-          <form
-            action="#"
-            method="POST"
-            className="mx-auto mt-8 max-w-xl sm:mt-8"
-          >
+          <form action="#" method="POST" className=" mt-8  sm:mt-8">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label
