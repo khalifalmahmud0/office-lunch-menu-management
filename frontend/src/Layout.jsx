@@ -4,7 +4,6 @@ import People from "./assets/img/people.jpg";
 import { Link } from "react-router-dom";
 
 const Layout = ({ children, login }) => {
-  console.log(login);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -34,7 +33,8 @@ const Layout = ({ children, login }) => {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-gray-100">
+    // overflow-hidden
+    <div className="flex flex-col h-screen  bg-gray-100">
       {/* Top Bar */}
       <header className={`${login ? "hidden" : "block"} py-4 bg-white shadow`}>
         <div className="flex items-center justify-between px-4">
@@ -103,9 +103,8 @@ const Layout = ({ children, login }) => {
         {/* Sidebar */}
         <div
           className={`fixed inset-y-0 left-0 z-30 w-64 transition-transform transform bg-slate-950 text-white lg:translate-x-0 lg:static lg:inset-0 ${
-            (sidebarOpen ? "translate-x-0" : "-translate-x-full",
-            login ? "hidden" : "block")
-          }`}
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } ${login ? "hidden" : "block"}`}
         >
           <div className="flex items-center justify-between p-4 lg:hidden">
             <h1 className="text-lg font-bold"></h1>
@@ -120,6 +119,11 @@ const Layout = ({ children, login }) => {
               onClick={toggleSidebar}
             >
               Today's Menu
+              {/* admin -> add menu ( based on date , default select todays date)
+              admin can select date dropdown, Employee not .... emply show only text
+              admin -> show, edit , delete menu 
+              employee -> show dropdown and select menu.
+              employee -> after select , which select content will be show  */}
             </Link>
             <Link
               to="choices"
@@ -127,6 +131,9 @@ const Layout = ({ children, login }) => {
               onClick={toggleSidebar}
             >
               Employee Choices
+              {/* all -> can show todays all menu selection  
+              by default it can be shown the result for todays date . but date filter should work 
+              */}
             </Link>
             <Link
               to="add-employee"
@@ -134,6 +141,7 @@ const Layout = ({ children, login }) => {
               onClick={toggleSidebar}
             >
               Add Employee
+              {/* admin -> email and password  */}
             </Link>
             <Link
               to="archive"
@@ -141,6 +149,7 @@ const Layout = ({ children, login }) => {
               onClick={toggleSidebar}
             >
               Archive
+              {/* admin -> list of all menus by date  */}
             </Link>
           </div>
         </div>
